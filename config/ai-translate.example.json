@@ -1,0 +1,38 @@
+{
+  "_comment": "PotPlayer AI 实时字幕翻译扩展配置文件。改完直接重启 PotPlayer 生效。每一项都可以删掉，删掉就用内置默认值。",
+
+  "model": "deepseek-chat",
+  "apiUrl": "https://api.deepseek.com/v1/chat/completions",
+  "apiKey": "",
+
+  "temperature": 0.2,
+  "maxTokens": 0,
+  "contextLines": 3,
+  "minChars": 0,
+
+  "delayMs": 0,
+  "retries": 1,
+  "timeoutMs": 20000,
+
+  "_localModel_comment": "以下是本地模型（Ollama 等）专用。本地模型首次加载要 10~20 秒，超过 PotPlayer 单次请求约 8.5 秒的上限，请求必然超时并让服务端取消加载；所以插件会另外起一个隐藏进程做「预热」，并让模型常驻内存。云端 API 可以保持 keepAlive 为空、autoWarmup 为 false。",
+  "keepAlive": "24h",
+  "autoWarmup": true,
+
+  "cache": true,
+  "keepOriginalOnFailure": true,
+  "debug": false,
+
+  "defaultTargetLang": "zh-CN",
+
+  "authHeader": "Authorization: Bearer {key}",
+  "extraHeaders": "",
+
+  "systemPrompt": "",
+  "glossary": "",
+
+  "_filter_comment": "=== 幻觉/静音字幕过滤（解决“无人说话时仍显示字幕”问题）===",
+  "blockHallucinations": true,
+  "minIntervalMs": 500,
+  "maxGapMs": 5000,
+  "hallucinationPatterns": ""
+}

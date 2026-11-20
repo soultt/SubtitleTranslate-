@@ -1,0 +1,35 @@
+{
+  "_comment": "PotPlayer AI 实时字幕翻译扩展 —— 本机配置（Ollama 本地模型）。改完直接重启 PotPlayer 生效。调试完成后把 debug 改成 false 即可关掉控制台。",
+
+  "model": "translategemma:4k",
+  "apiUrl": "http://127.0.0.1:11434/v1/chat/completions",
+  "apiKey": "nullkey",
+
+  "temperature": 0.2,
+  "maxTokens": 160,
+  "contextLines": 3,
+  "minChars": 0,
+
+  "delayMs": 0,
+  "retries": 1,
+  "timeoutMs": 20000,
+
+  "_localModel_comment": "本地模型首次加载 10~20 秒，超过 PotPlayer 单次请求约 8.5 秒上限。keepAlive 让模型常驻，autoWarmup 会在插件加载时用隐藏进程预热。",
+  "keepAlive": "24h",
+  "autoWarmup": true,
+
+  "cache": true,
+  "keepOriginalOnFailure": true,
+
+  "_debug_comment": "两个开关互相独立：debug=true 弹出调试控制台窗口；logFile=true 把日志写进 %APPDATA%\\PotPlayerMini64\\aitrans_log.txt。平时都用 false。",
+  "debug": false,
+  "logFile": false,
+
+  "defaultTargetLang": "zh-CN",
+
+  "authHeader": "Authorization: Bearer {key}",
+  "extraHeaders": "",
+
+  "systemPrompt": "",
+  "glossary": ""
+}
